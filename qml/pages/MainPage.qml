@@ -58,7 +58,7 @@ Page { id: page
             id: col
             width: parent.width - Theme.horizontalPageMargin
             anchors.horizontalCenter: parent.horizontalCenter
-            spacing: Theme.paddingLarge
+            //spacing: Theme.paddingLarge
             bottomPadding: Theme.itemSizeLarge
             PageHeader { id: head ; title: qsTr("Jolla Order Change Request") }
 
