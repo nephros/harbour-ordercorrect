@@ -81,20 +81,6 @@ find ~/rpmbuild/RPMS -type f -name %{name}-%{version}*.rpm -exec /usr/libexec/sd
 echo '=========== DONE checking for Harbour compatability.'
 # << check
 
-%post
-# >> post
-if [ $1 = 1 ]; then # install
-/usr/bin/sailfish-share-update-cache ||:
-fi
-# << post
-
-%postun
-# >> postun
-if [ $1 = 0 ]; then # uninstall
-/usr/bin/sailfish-share-update-cache ||:
-fi
-# << postun
-
 %files
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
