@@ -5,3 +5,5 @@ translations/*.qm
 icons/*x*
 Makefile
 validation.log
+*.o
+harbour-ordercorrect
