@@ -35,9 +35,9 @@ PkgBR:
   - sailfish-svg2png
   - qml-rpm-macros
 PkgConfigBR:
-  # we need this if we rely on sailfishapp features in the .pro file (like installing qml)
   - sailfishapp
-#  - qml(Nemo.Notifications)
+  - Qt5Quick
+  - Qt5Qml
 Configure: none
 Builder: qmake5
 #Configure: meson

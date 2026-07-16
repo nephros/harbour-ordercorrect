@@ -1,11 +1,10 @@
 TEMPLATE = app
 TARGET = harbour-ordercorrect
 CONFIG += sailfishapp
-# add either the first, or both:
 CONFIG += sailfishapp_i18n
 
-# set this to NOT deploy the qml/ folder:
-# CONFIG += sailfishapp_no_deploy_qml
+QT -= gui
+
 
 lupdate_only {
 SOURCES += \

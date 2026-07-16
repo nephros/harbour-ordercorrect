@@ -23,6 +23,8 @@ Source0:    https://github.com/nephros/%{name}/archive/v%{version}.tar.gz#/%{nam
 Source100:  harbour-ordercorrect.yaml
 Requires:   libsailfishapp-launcher
 BuildRequires:  pkgconfig(sailfishapp)
+BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  qt5-qttools-linguist
 BuildRequires:  qt5-qmake
 BuildRequires:  sailfish-svg2png
