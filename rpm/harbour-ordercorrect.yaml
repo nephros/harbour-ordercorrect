@@ -27,8 +27,6 @@ Macros2:
     BuildRequires: sdk-harbour-rpmvalidator
 Check: true # so we can do a fake clean section below it:
 
-Requires:
-  - libsailfishapp-launcher
 PkgBR:
   - qt5-qttools-linguist
   - qt5-qmake
