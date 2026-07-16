@@ -1,0 +1,67 @@
+Name: harbour-ordercorrect
+Summary: OrderCorrect Project
+Version: 0.1.0
+Release: 0
+Group: Applications
+License: Apache-2.0
+URL: https://github.com/nephros/harbour-ordercorrect
+SCM: https://github.com/nephros/harbour-ordercorrect
+Sources:
+    - 'https://github.com/nephros/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz'
+    # '%{name}-%{version}.tar.xz'
+Macros:
+  - 'orgname;org.nephros.sailfish'
+  - 'appname;OrderCorrect'
+  - 'pkgname;%{name}'
+  - 'servicebase;%{orgname}.%{appname}'
+  - 'desktopsrc;%SOURCE1'
+Description: |
+    %{summary}.
+
+Macros2:
+  - |
+    please_also;ignore this macro
+    %undefine vendor
+    %undefine _vendor
+    %undefine _chum
+    BuildRequires: sdk-harbour-rpmvalidator
+Check: true # so we can do a fake clean section below it:
+
+Requires:
+  - libsailfishapp-launcher
+PkgBR:
+  - qt5-qttools-linguist
+  - qt5-qmake
+  - sailfish-svg2png
+  - qml-rpm-macros
+PkgConfigBR:
+  # we need this if we rely on sailfishapp features in the .pro file (like installing qml)
+  - sailfishapp
+#  - qml(Nemo.Notifications)
+Configure: none
+Builder: qmake5
+#Configure: meson
+#Configure: none
+QMakeOptions:
+  - VERSION=\\"%{version}\\"
+  - RELEASE=\\"%{release}\\"
+#ConfigOptions:
+#  - '--with-foo'
+#Builder: meson
+#Builder: none
+NoIconCache: true
+#BuildArch: noarch
+Files:
+  # '%license LICENSE'
+  # '%license COPYING'
+  - '%{_bindir}/*'
+  - '%{_datadir}/applications/%{name}.desktop'
+  # '%{_datadir}/icons/*/*/apps/*'
+  - '%dir %{_datadir}/%{name}'
+  - '%dir %{_datadir}/%{name}/translations'
+  - '%{_datadir}/%{name}/translations/*.qm'
+  - '%{_datadir}/%{name}/qml/'
+  # '%{_datadir}/%{name}/python/'
+
+
+

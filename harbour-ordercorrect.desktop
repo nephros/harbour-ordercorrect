@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Icon=harbour-ordercorrect
+# Note that these are useless in sandboxed apps:
+X-Nemo-Application-Type=silica-qt5
+X-Nemo-Single-Instance=yes
+Exec=/usr/bin/harbour-ordercorrect
+Name=OrderCorrect
+
+[X-Sailjail]
+ApplicationName=OrderCorrect
+OrganizationName=org.nephros.sailfish
+#Permissions=
+

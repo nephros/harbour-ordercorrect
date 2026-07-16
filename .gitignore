@@ -1,0 +1,7 @@
+*list
+build.log
+rpm/*-rpmlintrc
+translations/*.qm
+icons/*x*
+Makefile
+validation.log
