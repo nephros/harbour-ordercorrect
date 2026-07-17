@@ -9,7 +9,7 @@ Name:       harbour-ordercorrect
 %undefine _chum
 
 Summary:    Jolla Order Correction Helper
-Version:    0.1.1
+Version:    0.1.2
 Release:    0
 Group:      Applications
 License:    Apache-2.0
