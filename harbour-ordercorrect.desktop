@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Icon=harbour-ordercorrect
+Icon=image://theme/icon-launcher-jollashop
 # Note that these are useless in sandboxed apps:
 X-Nemo-Application-Type=silica-qt5
 X-Nemo-Single-Instance=yes

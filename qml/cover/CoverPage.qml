@@ -10,7 +10,7 @@ CoverBackground {
     CoverPlaceholder {
         text: Qt.application.name
         textColor: Theme.highlightColor
-        icon.source: "image://theme/icon-m-sailfishos"
+        icon.source: "image://theme/icon-launcher-jollashop"
     }
 }
 
