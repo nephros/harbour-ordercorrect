@@ -20,7 +20,6 @@ Group:      Applications
 License:    Apache-2.0
 URL:        https://github.com/nephros/harbour-ordercorrect
 Source0:    https://github.com/nephros/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-Source100:  harbour-ordercorrect.yaml
 BuildRequires:  pkgconfig(sailfishapp)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Qml)
