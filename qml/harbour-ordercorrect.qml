@@ -19,6 +19,7 @@
 
 import QtQuick 2.6
 import Sailfish.Silica 1.0
+import Nemo.DBus 2.0
 import "pages"
 import "cover"
 
@@ -29,11 +30,37 @@ ApplicationWindow {
 
     Component.onCompleted: {
         console.info("Initialized", Qt.application.name, "version", Qt.application.version, "by", Qt.application.organization );
-        console.debug("Parameters: " + Qt.application.arguments.join(" "))
+        //console.debug("Parameters: " + Qt.application.arguments.join(" "))
     }
 
     initialPage: Component { MainPage{} }
     cover: CoverPage{}
+    DBusInterface { id: email
+        iface: "com.jolla.email.ui"
+        path: "/com/jolla/email/ui"
+        service: "com.jolla.email.ui"
+    }
+    function sendMail(subject, body, cc) {
+            email.call("compose", [ // sssss
+                subject, // subject:
+                '"Jolla Shop" <shop@jolla.com>"', // to:
+                !!cc ? cc : "", // cc:
+                "", // bcc:
+                body,
+            ],
+                function(r) { console.debug("Email:", r)},
+                function(e,m) {console.warn("Could not activate jolla-email:", e, m, "- Falling back to URL.")
+                    if ( e == "org.freedesktop.DBus.Error.ServiceUnknown") { //fallback
+                        Qt.openUrlExternally("mailto:shop@jolla.com?"
+                            + (!!cc ? ("cc=" + cc) : "")
+                            + "&subject=" + encodeURIComponent(subject)
+                            + "&body=" + encodeURI(body)
+                        )
+                    }
+                }
+            )
+
+        }
 }
 
 // vim: ft=javascript expandtab ts=4 sw=4 st=4 syntax=qml

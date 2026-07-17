@@ -15,8 +15,7 @@ Page { id: page
     property bool inputValid: false
     property bool saveInput: config.value("disabled", false) == true
     function preview() {
-        previewField.text = "Subject: " + "JollaPhoneOrderChanges: "
-            + formatSubject()
+        previewField.text = "Subject: " + formatSubject()
             + "\n\n\n"
             + formatBody()
     }
@@ -43,22 +42,21 @@ Page { id: page
             "",
             "-- ",
             "------------------",
-            "Name: " + fullName.text,
-            "Email: " + orderMail.text,
-            "Order: #" + orderNo.text,
+            "Name: .... " + fullName.text,
+            "Email: ... " + orderMail.text,
+            "Order: ... " + orderNo.text,
+            "------------------",
+            "Ref: ..... " + Qt.md5(orderMail.text + orderNo.text),
             "------------------",
         ].join('\n')
     }
     function formatSubject()
     {
-        return "#" + orderNo.text + "|" + typeBox.value + "| " + requestTitle.text
+        return "JollaPhoneOrderChanges|#" + orderNo.text + "|" + typeBox.value + "| " + requestTitle.text
     }
     function submit()
     {
-        Qt.openUrlExternally("mailto:shop@jolla.com?subject=JollaPhoneOrderChanges: "
-            + encodeURIComponent( formatSubject())
-            + "&body=" + encodeURIComponent( formatBody() )
-        )
+        app.sendMail( formatSubject(), formatBody(), orderMail.text )
     }
 
     Notification { id: popup
