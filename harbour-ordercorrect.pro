@@ -10,6 +10,7 @@ CONFIG += sailfishapp_no_deploy_qml
 # if we have a binary:
 INCLUDEPATH += .
 SOURCES += src/main.cpp
+DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 
 QML_FILES += \
     qml/$${TARGET}.qml \

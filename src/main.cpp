@@ -15,7 +15,10 @@ int main(int argc, char **argv) {
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     QScopedPointer<QQuickView> view(SailfishApp::createView());
 
-#ifdef APP_VERSION
+#ifndef APP_VERSION
+#warn  "no version defined"
+      app->setApplicationVersion("unreleased");
+#else
       app->setApplicationVersion(APP_VERSION);
 #endif
     //view->setSource(SailfishApp::pathToMainQml());

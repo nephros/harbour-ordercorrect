@@ -50,8 +50,8 @@ BuildRequires: sdk-harbour-rpmvalidator
 # << build pre
 
 %qmake5  \
-    VERSION=\\"%{version}\\" \
-    RELEASE=\\"%{release}\\"
+    VERSION='%{version}' \
+    RELEASE='%{release}'
 
 %make_build
 
