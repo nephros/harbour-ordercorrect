@@ -7,7 +7,6 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
 import Nemo.Notifications 1.0
-import Nemo.Configuration 1.0
 
 Page { id: page
 
@@ -65,12 +64,6 @@ Page { id: page
         body: qsTr("Some of the required fields are invalid or empty!")
          + " " + qsTr("Please Check your input")
     }
-
-    ConfigurationGroup { id: config
-        path: "/" + Qt.application.organization + "/" + Qt.application.name + "/user"
-        Component.onDestruction: if(!saveInput) { clear(); sync(); setValue("disabled", true); }
-    }
-
     SilicaFlickable {
         id: flick
         anchors.fill: parent

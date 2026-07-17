@@ -20,6 +20,7 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
 import Nemo.DBus 2.0
+import Nemo.Configuration 1.0
 import "pages"
 import "cover"
 
@@ -35,6 +36,16 @@ ApplicationWindow {
 
     initialPage: Component { MainPage{} }
     cover: CoverPage{}
+
+    ConfigurationValue { id: stamp
+        key: "/" + Qt.application.organization + "/" + Qt.application.name + "/stamp"
+        value: -1
+    }
+    ConfigurationGroup { id: config
+        path: "/" + Qt.application.organization + "/" + Qt.application.name + "/user"
+        Component.onDestruction: if(!saveInput) { clear(); sync(); setValue("disabled", true); }
+    }
+
     DBusInterface { id: email
         service: "com.jolla.email.ui"
         path: "/com/jolla/email/ui"
