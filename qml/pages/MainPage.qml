@@ -12,7 +12,6 @@ Page { id: page
 
     allowedOrientations: Orientation.All
     property bool inputValid: false
-    property bool saveInput: !privacy && (config.value("disabled", false) == true)
     function preview() {
         previewField.text = "Subject: " + formatSubject()
             + "\n\n\n"
@@ -57,7 +56,6 @@ Page { id: page
     {
         app.sendMail( formatSubject(), formatBody(), orderMail.text )
     }
-
     Notification { id: popup
         isTransient: true
         urgency: Notification.Critical
@@ -185,6 +183,7 @@ Page { id: page
 
         VerticalScrollDecorator {}
     }
+
 }
 
 // vim: expandtab ts=4 st=4 sw=4 filetype=javascript syntax=qml

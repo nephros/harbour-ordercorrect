@@ -29,6 +29,8 @@ ApplicationWindow {
 
     allowedOrientations: Orientation.All
 
+    property bool saveInput: !privacy && (config.value("disabled", false) == true)
+
     Component.onCompleted: {
         console.info("Initialized", Qt.application.name, "version", Qt.application.version, "by", Qt.application.organization );
         //console.debug("Parameters: " + Qt.application.arguments.join(" "))
@@ -52,11 +54,13 @@ ApplicationWindow {
         iface: "com.jolla.email.ui"
     }
     function checkSpam() {
-        const cutoff = 1000 * 60 * 60 * 24 // 24h
+        const cutoff = 1000 * 60 * 60 * 6 // h
         var now = Date.now()
         if (stamp.value != -1) {
             if (now - stamp.value < cutoff) {
-               return true
+                console.warn("Spamming?", now, stamp)
+                pageStack.replaceAbove(null, spammerPage, { "last": stamp.value } )
+                return true
             }
         }
         return false
@@ -96,6 +100,14 @@ ApplicationWindow {
             )
         }
     }
- }
+    Page { id: spammerPage
+        property int last
+        Label {
+            anchors.centerIn: parent
+            text: qsTr("It looks like you're sending a lot of emails.")
+             + "\n" + qsTr("Maybe give it a break...")
+        }
+    }
+}
 
 // vim: ft=javascript expandtab ts=4 sw=4 st=4 syntax=qml
