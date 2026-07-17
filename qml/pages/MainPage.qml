@@ -38,7 +38,7 @@ Page { id: page
             "Thank you,",
             "  " + fullName.text,
             "",
-            "-- ",
+            "~~~~ please do not edit amything below this line ~~~~",
             "------------------",
             "Name: .... " + fullName.text,
             "Email: ... " + orderMail.text,
@@ -84,6 +84,7 @@ Page { id: page
                 text: qsTr("Please enter the details of your order change request below.")
                      + "\n" + qsTr("After you're finished, scroll down to review the email text, and use the PullUp menu at the bottom to submit.")
                      + "\n" + qsTr("Submitting will not send anything, but open your email app.")
+                     + "\n" + qsTr("Final sending must be done from the email app. Please leave the subject line, and the bottom (after the signature) intact.")
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
             }
