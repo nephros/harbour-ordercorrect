@@ -175,12 +175,12 @@ Page { id: page
             }
 
         }
-        /*
+
         PullDownMenu { id: pdm
-            MenuItem { text: qsTr("About"); onClicked: { pageStack.push(Qt.resolvedUrl("AboutPage.qml")) } }
-            MenuItem { text: qsTr("Settings"); onClicked: { pageStack.push(Qt.resolvedUrl("SettingsPage.qml")) } }
+            MenuItem { text: qsTr("Copy Subject to Clipboard"); onClicked: { if (validate()) Clipboard.text = formatSubject() } }
+            MenuItem { text: qsTr("Copy Body to Clipboard"); onClicked: {    if (validate())  Clipboard.text = formatBody()  } }
         }
-        */
+
         PushUpMenu { id: pum
             quickSelect: false
             MenuItem  { text: qsTr("Submit")
