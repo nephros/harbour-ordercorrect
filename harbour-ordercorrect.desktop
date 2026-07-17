@@ -9,5 +9,5 @@ Name=OrderMail
 [X-Sailjail]
 ApplicationName=OrderMail
 OrganizationName=org.nephros.sailfish
-Permissions=Email
+Permissions=
 
