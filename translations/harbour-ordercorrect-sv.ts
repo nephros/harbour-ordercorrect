@@ -28,10 +28,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Save Input</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>For your convenience, order number, name, and email are saved and will be loaded on the next app launch.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -97,6 +93,33 @@
     </message>
     <message>
         <source>Disabled by Privacy Switch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Basic Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy Subject to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy Body to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Final sending must be done from the email app. Please leave the subject line, and the bottom (after the signature) intact.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>harbour-ordercorrect</name>
+    <message>
+        <source>It looks like you&apos;re sending a lot of emails.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maybe give it a break...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
