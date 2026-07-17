@@ -101,9 +101,9 @@ Page { id: page
                 description: qsTr("For your convenience, order number, name, and email are saved and will be loaded on the next app launch.")
                      + "\n" + qsTr("If you do not want this, disable this switch.")
                 checked: saveInput
-                automaticCheck: false
-                onClicked: { saveInput = !saveInput }
-                onCheckedChanged: { config.setValue("disabled", !checked ) }
+                //automaticCheck: false
+                //onClicked: { saveInput = !saveInput }
+                onCheckedChanged: { saveInout = checked; config.setValue("disabled", !checked ) }
             }
 
             TextField { id: orderNo
