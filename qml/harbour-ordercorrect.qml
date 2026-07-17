@@ -51,7 +51,18 @@ ApplicationWindow {
         path: "/com/jolla/email/ui"
         iface: "com.jolla.email.ui"
     }
+    function checkSpam() {
+        const cutoff = 1000 * 60 * 60 * 24 // 24h
+        var now = Date.now()
+        if (stamp.value != -1) {
+            if (now - stamp.value < cutoff) {
+               return true
+            }
+        }
+        return false
+    }
     function sendMail(subject, body, cc) {
+            if (checkSpam()) return
             email.call("compose", [ // sssss
                 subject, // subject:
                 '"Jolla Shop" <shop@jolla.com>"', // to:
@@ -59,7 +70,7 @@ ApplicationWindow {
                 "", // bcc:
                 body,
             ],
-                function(r) { console.debug("Email:", r)},
+                function(r) { console.debug("Email:", r); stamp.value = Date.now() },
                 function(e,m) {console.warn("Could not activate jolla-email:", e, m, "- Falling back to URL.")
                     if ( e == "org.freedesktop.DBus.Error.ServiceUnknown") { //fallback
                         Qt.openUrlExternally("mailto:shop@jolla.com?"
@@ -67,6 +78,7 @@ ApplicationWindow {
                             + "&subject=" + encodeURIComponent(subject)
                             + "&body=" + encodeURI(body)
                         )
+                        stamp.value = Date.now()
                     }
                 }
             )
