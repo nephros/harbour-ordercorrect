@@ -95,5 +95,9 @@
         <source>Submit</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Disabled by Privacy Switch</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
