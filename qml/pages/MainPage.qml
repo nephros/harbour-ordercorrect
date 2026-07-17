@@ -46,6 +46,7 @@ Page { id: page
             "------------------",
             "Ref: ..... " + Qt.md5(orderMail.text + orderNo.text),
             "Stamp: ... " + Math.floor(stamp.value/1000),
+            "Sequence:. " + attempts.value,
             "------------------",
         ].join('\n')
     }

@@ -39,6 +39,11 @@ ApplicationWindow {
     initialPage: Component { MainPage{} }
     cover: CoverPage{}
 
+    ConfigurationValue { id: attempts
+        key: "/" + Qt.application.organization + "/" + Qt.application.name + "/count"
+        defaultValue: 0
+    }
+
     ConfigurationValue { id: stamp
         key: "/" + Qt.application.organization + "/" + Qt.application.name + "/stamp"
         defaultValue: -1
@@ -79,7 +84,7 @@ ApplicationWindow {
                 "", // bcc:
                 body,
             ],
-                function(r) { console.debug("Email:", r); stamp.value = Date.now() },
+                function(r) { console.debug("Email:", r); stamp.value = Date.now(); attempts.value += 1 },
                 function(e,m) {console.warn("Could not activate jolla-email:", e, m, "- Falling back to URL.")
                     if ( e == "org.freedesktop.DBus.Error.ServiceUnknown") { //fallback
                         Qt.openUrlExternally("mailto:shop@jolla.com?"
