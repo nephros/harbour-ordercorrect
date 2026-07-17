@@ -25,6 +25,11 @@ BuildRequires:  qml-rpm-macros
 BuildRequires:  desktop-file-utils
 #BuildRequires: sdk-harbour-rpmvalidator
 
+# as we build the qml files int the binary, we need to require stuff here:
+Requires: qml(Nemo.Notifications)
+Requires: qml(Sailfish.Silica)
+Requires: qml(Nemo.Configuration)
+
 %description
 %{summary}.
 

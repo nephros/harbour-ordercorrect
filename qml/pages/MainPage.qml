@@ -6,11 +6,14 @@
 
 import QtQuick 2.6
 import Sailfish.Silica 1.0
+import Nemo.Notifications 1.0
+import Nemo.Configuration 1.0
 
 Page { id: page
 
     allowedOrientations: Orientation.All
     property bool inputValid: false
+    property bool saveInput: config.value("disabled", false) == true
     function preview() {
         previewField.text = "Subject: " + "JollaPhoneOrderChanges: "
             + formatSubject()
@@ -19,7 +22,14 @@ Page { id: page
     }
     function validate()
     {
-        return true
+        var ok =
+               ((orderNo.text.length > 0)    && orderNo.acceptableInput)
+            && ((orderMail.text.length > 0)  && orderMail.acceptableInput)
+            && ((fullName.text.length > 0)   && fullName.acceptableInput)
+            && (requestTitle.text.length > 0)
+            && (requestText.text.length > 0)
+        if (!ok) popup.publish()
+        return ok
     }
     function formatBody()
     {
@@ -41,7 +51,7 @@ Page { id: page
     }
     function formatSubject()
     {
-        return "#" + orderNo.text + "|" + typeBox.value + "|" + requestTitle.text
+        return "#" + orderNo.text + "|" + typeBox.value + "| " + requestTitle.text
     }
     function submit()
     {
@@ -50,6 +60,19 @@ Page { id: page
             + "&body=" + encodeURIComponent( formatBody() )
         )
     }
+
+    Notification { id: popup
+        isTransient: true
+        urgency: Notification.Critical
+        body: qsTr("Some of the required fields are invalid or empty!")
+         + " " + qsTr("Please Check your input")
+    }
+
+    ConfigurationGroup { id: config
+        path: "/" + Qt.application.organization + "/" + Qt.application.name + "/user"
+        Component.onDestruction: if(!saveInput) { clear(); sync(); setValue("disabled", true); }
+    }
+
     SilicaFlickable {
         id: flick
         anchors.fill: parent
@@ -62,13 +85,38 @@ Page { id: page
             bottomPadding: Theme.itemSizeLarge
             PageHeader { id: head ; title: qsTr("Jolla Order Change Request") }
 
+            Label {
+                width: parent.width - Theme.paddingLarge
+                anchors.horizontalCenter: parent.horizontalCenter
+                wrapMode: Text.Wrap
+                text: qsTr("Please enter the details of your order change request below.")
+                     + "\n" + qsTr("After you're finished, scroll down to review the email text, and use the PullUp menu at the bottom to submit.")
+                     + "\n" + qsTr("Submitting will not send anything, but open your email app.")
+                color: Theme.secondaryHighlightColor
+                font.pixelSize: Theme.fontSizeSmall
+            }
+
+            TextSwitch {
+                text: qsTr("Save Input")
+                description: qsTr("For your convenience, order number, name, and email are saved and will be loaded on the next app launch.")
+                     + "\n" + qsTr("If you do not want this, disable this switch.")
+                checked: saveInput
+                automaticCheck: false
+                onClicked: { saveInput = !saveInput }
+                onCheckedChanged: { config.setValue("disabled", !checked ) }
+            }
+
             TextField { id: orderNo
                 label: qsTr("Order Number")
-                placeholderText: "9999999"
                 inputMethodHints: Qt.ImhDigitsOnly
                 strictValidation: true
-                acceptableInput: /[0-9]{4,}/.test(text)
+                acceptableInput: /^[0-9]{4,}$/.test(text)
                 EnterKey.onClicked: orderMail.focus = true
+                Component.onCompleted: {
+                    var val =  config.value("orderNo", "unset")
+                    if (val !== "unset") text = val
+                }
+                Component.onDestruction: if(acceptableInput && saveInput) config.setValue("orderNo",  text )
             }
             TextField { id: orderMail
                 label: qsTr("Order Email address")
@@ -77,12 +125,22 @@ Page { id: page
                 acceptableInput: /^\S+@\S+\.\S+$/.test(text)
 
                 EnterKey.onClicked: fullName.focus = true
+                Component.onCompleted: {
+                    var val =  config.value("orderEmail", "unset")
+                    if (val !== "unset") text = val
+                }
+                Component.onDestruction: if(acceptableInput && saveInput) config.setValue("orderEmail", text )
             }
 
             TextField { id: fullName
                 label: qsTr("Full Name")
-                acceptableInput: /^\S+ \S+$/.test(text)
+                acceptableInput: /^\S{2,} \S{2,}/.test(text)
                 EnterKey.onClicked: { focus = false; typeBox.menu.open(typeBox); preview() }
+                Component.onCompleted: {
+                    var val =  config.value("fullName", "unset")
+                    if (val !== "unset") text = val
+                }
+                Component.onDestruction: if(acceptableInput && saveInput) config.setValue("fullName", text )
             }
 
 
@@ -128,8 +186,7 @@ Page { id: page
             quickSelect: false
             MenuItem  { text: qsTr("Submit")
                 onClicked: {
-                    validate()
-                    submit()
+                    validate() && submit()
                 }
             }
         }
