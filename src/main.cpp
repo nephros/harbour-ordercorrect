@@ -18,7 +18,8 @@ int main(int argc, char **argv) {
 #ifdef APP_VERSION
       app->setApplicationVersion(APP_VERSION);
 #endif
-    view->setSource(SailfishApp::pathToMainQml());
+    //view->setSource(SailfishApp::pathToMainQml());
+    view->setSource(QUrl("qrc:/qml/harbour-ordercorrect.qml"));
     view->show();
     return app->exec();
 }

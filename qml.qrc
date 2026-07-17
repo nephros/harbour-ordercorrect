@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/">
+<file>qml/harbour-ordercorrect.qml</file>
+<file>qml/cover/CoverPage.qml</file>
+<file>qml/pages/MainPage.qml</file>
+</qresource>
+</RCC>
