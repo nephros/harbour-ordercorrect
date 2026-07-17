@@ -36,9 +36,9 @@ ApplicationWindow {
     initialPage: Component { MainPage{} }
     cover: CoverPage{}
     DBusInterface { id: email
-        iface: "com.jolla.email.ui"
-        path: "/com/jolla/email/ui"
         service: "com.jolla.email.ui"
+        path: "/com/jolla/email/ui"
+        iface: "com.jolla.email.ui"
     }
     function sendMail(subject, body, cc) {
             email.call("compose", [ // sssss
@@ -61,6 +61,18 @@ ApplicationWindow {
             )
 
         }
-}
+    property bool privacy: false
+    DBusInterface {
+        service: "org.sailfishos.privacyswitch"
+        path: "/privacyswitch"
+        iface: "org.sailfishos.privacyswitch"
+        Component.onCompleted: {
+            call("privacyModeActive" , [],
+                function(r) { privacy = r },
+                function(e,m) {console.warn("Could determine switch state:", e, m)}
+            )
+        }
+    }
+ }
 
 // vim: ft=javascript expandtab ts=4 sw=4 st=4 syntax=qml
