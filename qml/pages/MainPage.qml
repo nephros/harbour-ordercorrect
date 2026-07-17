@@ -87,13 +87,13 @@ Page { id: page
 
             TextSwitch {
                 enabled: !privacy
-                text: qsTr("Save Input")
+                text: qsTr("Save Basic Information")
                 description: !enabled
                     ? qsTr("Disabled by Privacy Switch")
                     : qsTr("For your convenience, order number, name, and email are saved and will be loaded on the next app launch.")
                      + "\n" + qsTr("If you do not want this, disable this switch.")
-                checked: saveInput
-                onCheckedChanged: { if (!privacy) { saveInput = checked; config.setValue("disabled", !checked ) } }
+                checked: saveData.value
+                onCheckedChanged: { saveData.value = checked; }
             }
 
             TextField { id: orderNo

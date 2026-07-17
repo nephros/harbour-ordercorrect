@@ -29,7 +29,7 @@ ApplicationWindow {
 
     allowedOrientations: Orientation.All
 
-    property bool saveInput: !privacy && (config.value("disabled", false) == true)
+    property bool saveInput: privacy ? false : saveData.value
 
     Component.onCompleted: {
         console.info("Initialized", Qt.application.name, "version", Qt.application.version, "by", Qt.application.organization );
@@ -41,11 +41,15 @@ ApplicationWindow {
 
     ConfigurationValue { id: stamp
         key: "/" + Qt.application.organization + "/" + Qt.application.name + "/stamp"
-        value: -1
+        defaultValue: -1
+    }
+    ConfigurationValue { id: saveData
+        key: "/" + Qt.application.organization + "/" + Qt.application.name + "/saveData"
+        defaultValue: true
     }
     ConfigurationGroup { id: config
         path: "/" + Qt.application.organization + "/" + Qt.application.name + "/user"
-        Component.onDestruction: if(!saveInput) { clear(); sync(); setValue("disabled", true); }
+        Component.onDestruction: if(!saveInput) { clear(); sync(); }
     }
 
     DBusInterface { id: email
