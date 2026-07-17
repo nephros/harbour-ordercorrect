@@ -19,6 +19,7 @@ RESOURCES += qml.qrc
 
 TRANSLATIONS += translations/$${TARGET}-en.ts \
                 translations/$${TARGET}-de.ts \
+                translations/$${TARGET}-fi.ts \
                 translations/$${TARGET}-sv.ts
 
 QMAKE_EXTRA_TARGETS += ts
