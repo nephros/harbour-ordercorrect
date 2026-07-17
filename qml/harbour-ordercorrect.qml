@@ -54,6 +54,7 @@ ApplicationWindow {
         iface: "com.jolla.email.ui"
     }
     function checkSpam() {
+        return false // needs testing
         const cutoff = 1000 * 60 * 60 * 6 // h
         var now = Date.now()
         if (stamp.value != -1) {
