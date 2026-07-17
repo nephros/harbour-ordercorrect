@@ -29,6 +29,6 @@ ts.commands = lupdate $$_PRO_FILE_
 # sailfishapp has this already:
 OTHER_FILES += $$files(rpm/*)
 
-#include(icons/icons.pri)
+include(icons/icons.pri)
 include(check.pri)
 include(clean.pri)

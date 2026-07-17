@@ -5,7 +5,7 @@
 
 # Configures svg to png
 THEMENAME = sailfish-default
-INSTALLS += svg appicon
+INSTALLS += appicon
 
 QMAKE_CLEAN += -r $${_PRO_FILE_PWD_}/icons/z*
 QMAKE_CLEAN += -r $${_PRO_FILE_PWD_}/icons/*x*
@@ -36,5 +36,6 @@ appicon.CONFIG += no_check_exist
 
 
 # also install SVG:
-svg.path = $$PREFIX/share/icons/hicolor/scalable/apps
-svg.files = $${_PRO_FILE_PWD_}/icons/svgs/$${TARGET}.svg
+#INSTALLS += svg
+#svg.path = $$PREFIX/share/icons/hicolor/scalable/apps
+#svg.files = $${_PRO_FILE_PWD_}/icons/svgs/$${TARGET}.svg

@@ -56,3 +56,4 @@ echo '=========== DONE checking for Harbour compatability.'
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/translations/*.qm
+%{_datadir}/icons/hicolor/*/apps/%{name}.png
