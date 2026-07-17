@@ -71,8 +71,9 @@ Page { id: page
             id: col
             width: parent.width - Theme.horizontalPageMargin
             anchors.horizontalCenter: parent.horizontalCenter
-            //spacing: Theme.paddingLarge
+            spacing: Theme.paddingSmall
             bottomPadding: Theme.itemSizeLarge
+
             PageHeader { id: head ; title: qsTr("Jolla Order Change Request") }
 
             Label {
@@ -96,6 +97,8 @@ Page { id: page
                 checked: saveData.value
                 onCheckedChanged: { saveData.value = checked; }
             }
+
+            Separator { width: parent.width; color: Theme.highlightColor }
 
             TextField { id: orderNo
                 label: qsTr("Order Number")
