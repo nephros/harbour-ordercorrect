@@ -4,10 +4,10 @@ Icon=harbour-ordercorrect
 X-Nemo-Application-Type=silica-qt5
 X-Nemo-Single-Instance=yes
 Exec=harbour-ordercorrect
-Name=OrderCorrect
+Name=OrderMail
 
 [X-Sailjail]
-ApplicationName=OrderCorrect
+ApplicationName=OrderMail
 OrganizationName=org.nephros.sailfish
 Permissions=
 

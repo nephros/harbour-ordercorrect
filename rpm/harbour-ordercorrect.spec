@@ -1,14 +1,14 @@
 Name:       harbour-ordercorrect
 
 %define orgname org.nephros.sailfish
-%define appname OrderCorrect
+%define appname OrderMail
 %define pkgname %{name}
 
 %undefine vendor
 %undefine _vendor
 %undefine _chum
 
-Summary:    OrderCorrect Project
+Summary:    Jolla Order Correction Helper
 Version:    0.1.0
 Release:    0
 Group:      Applications
