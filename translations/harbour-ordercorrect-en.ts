@@ -64,10 +64,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Item Change</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Request Title</source>
         <translation type="unfinished"></translation>
     </message>
@@ -109,6 +105,14 @@
     </message>
     <message>
         <source>Final sending must be done from the email app. Please leave the subject line, and the bottom (after the signature) intact.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Order/Item Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Payment/Refund/VAT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
