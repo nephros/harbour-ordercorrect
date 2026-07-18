@@ -147,7 +147,8 @@ Page { id: page
                 menu: ContextMenu {
                     MenuItem { text: qsTr("Other") }
                     MenuItem { text: qsTr("Delivery Address Change") }
-                    MenuItem { text: qsTr("Item Change") }
+                    MenuItem { text: qsTr("Order/Item Change") }
+                    MenuItem { text: qsTr("Payment/Refund/VAT") }
                 }
 
             }
