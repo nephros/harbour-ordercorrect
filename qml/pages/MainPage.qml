@@ -48,6 +48,8 @@ Page { id: page
             "Stamp: ... " + Math.floor(stamp.value/1000),
             "Sequence:. " + attempts.value,
             "------------------",
+            "Created by: "   + Qt.application.name + " " + Qt.application.version,
+            "------------------",
         ].join('\n')
     }
     function formatSubject()
