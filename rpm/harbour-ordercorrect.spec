@@ -63,7 +63,7 @@ echo '=========== NOT checking for Harbour compatability.'
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/translations/harbour-ordercorrect-en.qm
 # enable them once finished:
-%exclude %{_datadir}/%{name}/translations/harbour-ordercorrect-de.qm
+%{_datadir}/%{name}/translations/harbour-ordercorrect-de.qm
 %exclude %{_datadir}/%{name}/translations/harbour-ordercorrect-fi.qm
 %exclude %{_datadir}/%{name}/translations/harbour-ordercorrect-sv.qm
 
