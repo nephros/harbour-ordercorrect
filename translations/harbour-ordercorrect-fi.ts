@@ -60,10 +60,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Request Title</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Describe your request briefly.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -141,6 +137,10 @@
     </message>
     <message>
         <source>For your convenience, order number, name, and email address are saved and will be loaded on the next app launch.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Request Title (optional)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
