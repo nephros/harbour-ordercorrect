@@ -54,7 +54,7 @@ Page { id: page
     }
     function formatSubject()
     {
-        return "JollaPhoneOrderChanges|#" + orderNo.text + "|" + typeBox.value + "| " + requestTitle.text
+        return "JollaPhoneOrderChanges|#" + orderNo.text + "|" + typeBox.nonLocalizedValue + "| " + requestTitle.text
     }
     function submit()
     {
@@ -145,13 +145,14 @@ Page { id: page
 
             ComboBox{ id: typeBox
                 label: qsTr("Request Type")
+                //property string nonLocalizedValue: { var i = currentItem; return i.nonLocalizedValue }
+                property string nonLocalizedValue: currentItem.nonLocalizedValue
                 menu: ContextMenu {
-                    MenuItem { text: qsTr("Other") }
-                    MenuItem { text: qsTr("Delivery Address Change") }
-                    MenuItem { text: qsTr("Order/Item Change") }
-                    MenuItem { text: qsTr("Payment/Refund/VAT") }
+                    MenuItem { text: qsTr("Other");                   readonly property string nonLocalizedValue: "other" }
+                    MenuItem { text: qsTr("Delivery Address Change"); readonly property string nonLocalizedValue: "address-change"}
+                    MenuItem { text: qsTr("Order/Item Change");       readonly property string nonLocalizedValue: "order-change"}
+                    MenuItem { text: qsTr("Payment/Refund/VAT");      readonly property string nonLocalizedValue: "payment" }
                 }
-
             }
             TextField { id: requestTitle
                 label: qsTr("Request Title")
