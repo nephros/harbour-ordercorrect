@@ -28,10 +28,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>For your convenience, order number, name, and email are saved and will be loaded on the next app launch.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>If you do not want this, disable this switch.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -88,10 +84,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Disabled by Privacy Switch</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Save Basic Information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -113,6 +105,42 @@
     </message>
     <message>
         <source>Payment/Refund/VAT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your last email was less than %1 hours ago.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you need to send another one?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete personal information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Welcome</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dismiss</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Welcome to the inofficial Sailfish OS order change request reporting tool.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please enter the details of your order change on the main page.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Notice: Even though %1 offers localized versions, please keep your communication in English if at all possible.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For your convenience, order number, name, and email address are saved and will be loaded on the next app launch.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
