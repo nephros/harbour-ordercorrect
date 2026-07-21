@@ -23,7 +23,6 @@ Page { id: page
                ((orderNo.text.length > 0)    && orderNo.acceptableInput)
             && ((orderMail.text.length > 0)  && orderMail.acceptableInput)
             && ((fullName.text.length > 0)   && fullName.acceptableInput)
-            && (requestTitle.text.length > 0)
             && (requestText.text.length > 0)
         if (!ok) popup.publish()
         return ok
@@ -155,7 +154,8 @@ Page { id: page
                 }
             }
             TextField { id: requestTitle
-                label: qsTr("Request Title")
+                text: ""
+                label: qsTr("Request Title (optional)")
                 description: qsTr("Describe your request briefly.")
                 EnterKey.onClicked: { requestText.focus = true; preview() }
             }
