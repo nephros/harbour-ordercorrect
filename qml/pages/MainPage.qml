@@ -79,27 +79,28 @@ Page { id: page
 
             PageHeader { id: head ; title: qsTr("Jolla Order Change Request") }
 
+            Row {
+                visible: (Date.now() - stamp.value) < mailThreshold
+                Icon { id: warningIcon
+                    source: "image://theme/icon-lock-warning?" + Theme.presenceColor(Theme.PresenceAway)
+                    anchors.verticalCenter: spamWarning.verticalCenter
+                }
+                Label { id: spamWarning
+                    width: parent.width - warningIcon
+                    wrapMode: Text.Wrap
+                    text: qsTr("Your last email was less than %1 hours ago.").arg(Math.floor(mailThreshold))
+                         + "\n" + qsTr("Are you sure you need to send another one?")
+                    color: Theme.primaryColor
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+            }
             Label {
                 width: parent.width - Theme.paddingLarge
                 anchors.horizontalCenter: parent.horizontalCenter
                 wrapMode: Text.Wrap
                 text: qsTr("Please enter the details of your order change request below.")
-                     + "\n" + qsTr("After you're finished, scroll down to review the email text, and use the PullUp menu at the bottom to submit.")
-                     + "\n" + qsTr("Submitting will not send anything, but open your email app.")
-                     + "\n" + qsTr("Final sending must be done from the email app. Please leave the subject line, and the bottom (after the signature) intact.")
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
-            }
-
-            TextSwitch {
-                enabled: !privacy
-                text: qsTr("Save Basic Information")
-                description: !enabled
-                    ? qsTr("Disabled by Privacy Switch")
-                    : qsTr("For your convenience, order number, name, and email are saved and will be loaded on the next app launch.")
-                     + "\n" + qsTr("If you do not want this, disable this switch.")
-                checked: saveData.value
-                onCheckedChanged: { saveData.value = checked; }
             }
 
             Separator { width: parent.width; color: Theme.highlightColor }
@@ -114,7 +115,7 @@ Page { id: page
                     var val =  config.value("orderNo", "unset")
                     if (val !== "unset") text = val
                 }
-                Component.onDestruction: if(acceptableInput && saveInput) config.setValue("orderNo",  text )
+                Component.onDestruction: if(acceptableInput && !doNotSave) config.setValue("orderNo",  text )
             }
             TextField { id: orderMail
                 label: qsTr("Order Email address")
@@ -127,7 +128,7 @@ Page { id: page
                     var val =  config.value("orderEmail", "unset")
                     if (val !== "unset") text = val
                 }
-                Component.onDestruction: if(acceptableInput && saveInput) config.setValue("orderEmail", text )
+                Component.onDestruction: if(acceptableInput && !doNotSave) config.setValue("orderEmail", text )
             }
 
             TextField { id: fullName
@@ -138,7 +139,7 @@ Page { id: page
                     var val =  config.value("fullName", "unset")
                     if (val !== "unset") text = val
                 }
-                Component.onDestruction: if(acceptableInput && saveInput) config.setValue("fullName", text )
+                Component.onDestruction: if(acceptableInput && !doNotSave) config.setValue("fullName", text )
             }
 
 
@@ -177,6 +178,7 @@ Page { id: page
         }
 
         PullDownMenu { id: pdm
+            MenuItem { text: qsTr("Delete personal information"); onClicked: { config.clear(); config.sync() } }
             MenuItem { text: qsTr("Copy Subject to Clipboard"); onClicked: { if (validate()) Clipboard.text = formatSubject() } }
             MenuItem { text: qsTr("Copy Body to Clipboard"); onClicked: {    if (validate())  Clipboard.text = formatBody()  } }
         }
@@ -192,7 +194,83 @@ Page { id: page
 
         VerticalScrollDecorator {}
     }
+    /*
+     * ***** WELCOME DIALOG *****
+     *
+     * show a welcome popup on launch
+     */
+    property bool welcomeShown: false
+    onStatusChanged: {
+        if (status == PageStatus.Active) showWelcomeDialog();
+    }
+    function showWelcomeDialog() {
+        if (welcomeShown) return;
+        var dialog = pageStack.push(welcome)
+        dialog.done.connect(function() { page.welcomeShown = true; })
+    }
 
+    Component { id: welcome
+        Dialog {
+            allowedOrientations: Orientation.All
+
+            canAccept: false
+            forwardNavigation: false
+            SilicaFlickable {
+                anchors.fill: parent
+                contentHeight: content.height
+                Column { id: content
+                    width: parent.width
+                    spacing: Theme.paddingLarge
+                    DialogHeader {
+                        title: qsTr("Welcome")
+                        cancelText: qsTr("Dismiss")
+                        acceptText: ""
+                    }
+                    Label {
+                        width:  parent.width - Theme.horizontalPageMargin
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        color: Theme.secondaryHighlightColor
+                        font.pixelSize: Theme.fontSizeSmall
+                        wrapMode: Text.WordWrap
+                        text: qsTr('Welcome to the inofficial Sailfish OS order change request reporting tool.')
+                    }
+                    Label {
+                        width:  parent.width - Theme.horizontalPageMargin
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        horizontalAlignment: Text.AlignJustify
+                        color: Theme.secondaryHighlightColor
+                        font.pixelSize: Theme.fontSizeSmall
+                        wrapMode: Text.Wrap
+                        text: qsTr("Please enter the details of your order change on the main page.")
+                             + "\n" + qsTr("After you're finished, scroll down to review the email text, and use the PullUp menu at the bottom to submit.")
+                             + "\n" + qsTr("Submitting will not send anything, but open your email app.")
+                             + "\n" + qsTr("Final sending must be done from the email app. Please leave the subject line, and the bottom (after the signature) intact.")
+                    }
+                    Label {
+                        width:  parent.width - Theme.horizontalPageMargin
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        color: Theme.secondaryHighlightColor
+                        font.pixelSize: Theme.fontSizeSmall
+                        horizontalAlignment: Text.AlignJustify
+                        wrapMode: Text.WordWrap
+                        text: qsTr('Notice: Even though %1 offers localized versions, please keep your communication in English if at all possible.').arg(Qt.application.name)
+                    }
+
+                    IconTextSwitch {
+                        text: qsTr("Save Basic Information")
+                        icon.source: "image://theme/icon-m-incognito"
+                        description: qsTr("For your convenience, order number, name, and email address are saved and will be loaded on the next app launch.")
+                             + "\n" + qsTr("If you do not want this, disable this switch.")
+                        checked: !doNotSave
+                        onCheckedChanged: { doNotSave.value = !checked; }
+                    }
+
+
+                }
+            }
+        }
+    }
+    /* END WELCOME DIALOG */
 }
 
 // vim: expandtab ts=4 st=4 sw=4 filetype=javascript syntax=qml

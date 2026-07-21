@@ -29,11 +29,12 @@ ApplicationWindow {
 
     allowedOrientations: Orientation.All
 
-    property bool saveInput: privacy ? false : saveData.value
+    readonly property var mailThreshold: 1000 * 60 * 60 * 6 // h
+    property bool doNotSave: false
+
 
     Component.onCompleted: {
         console.info("Initialized", Qt.application.name, "version", Qt.application.version, "by", Qt.application.organization );
-        //console.debug("Parameters: " + Qt.application.arguments.join(" "))
     }
 
     initialPage: Component { MainPage{} }
@@ -48,13 +49,15 @@ ApplicationWindow {
         key: "/" + Qt.application.organization + "/" + Qt.application.name + "/stamp"
         defaultValue: -1
     }
+/*
     ConfigurationValue { id: saveData
         key: "/" + Qt.application.organization + "/" + Qt.application.name + "/saveData"
         defaultValue: true
     }
+*/
     ConfigurationGroup { id: config
         path: "/" + Qt.application.organization + "/" + Qt.application.name + "/user"
-        Component.onDestruction: if(!saveInput) { clear(); sync(); }
+        Component.onDestruction: if(doNotSave) { clear(); sync(); }
     }
 
     DBusInterface { id: email
@@ -76,28 +79,28 @@ ApplicationWindow {
         return false
     }
     function sendMail(subject, body, cc) {
-            if (checkSpam()) return
-            email.call("compose", [ // sssss
+        if (checkSpam()) return
+        email.call("compose", [ // sssss
                 subject, // subject:
                 '"Jolla Shop" <shop@jolla.com>"', // to:
                 !!cc ? cc : "", // cc:
                 "", // bcc:
                 body,
             ],
-                function(r) { if(!!r) console.debug("Email:", r); stamp.value = Date.now(); attempts.value += 1 },
-                function(e,m) {console.warn("Could not activate jolla-email:", e, m, "- Falling back to URL.")
-                    if ( e == "org.freedesktop.DBus.Error.ServiceUnknown") { //fallback
-                        Qt.openUrlExternally("mailto:shop@jolla.com?"
-                            + (!!cc ? ("cc=" + cc) : "")
-                            + "&subject=" + encodeURIComponent(subject)
-                            + "&body=" + encodeURI(body)
-                        )
-                        stamp.value = Date.now()
-                    }
+            function(r) { if(!!r) console.debug("Email:", r); stamp.value = Date.now(); attempts.value += 1 },
+            function(e,m) {console.warn("Could not activate jolla-email:", e, m, "- Falling back to URL.")
+                if ( e == "org.freedesktop.DBus.Error.ServiceUnknown") { //fallback
+                    Qt.openUrlExternally("mailto:shop@jolla.com?"
+                        + (!!cc ? ("cc=" + cc) : "")
+                        + "&subject=" + encodeURIComponent(subject)
+                        + "&body=" + encodeURI(body)
+                    )
+                    stamp.value = Date.now()
                 }
-            )
-
-        }
+            }
+        )
+    }
+    /*
     property bool privacy: false
     DBusInterface {
         service: "org.sailfishos.privacyswitch"
@@ -110,6 +113,7 @@ ApplicationWindow {
             )
         }
     }
+    */
     Page { id: spammerPage
         property int last
         Label {
