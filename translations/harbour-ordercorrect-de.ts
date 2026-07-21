@@ -5,154 +5,154 @@
     <name>MainPage</name>
     <message>
         <source>Some of the required fields are invalid or empty!</source>
-        <translation type="unfinished"></translation>
+        <translation>Einige der Pflichrfelder sind leer oder ungültig befüllt!</translation>
     </message>
     <message>
         <source>Please Check your input</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte prüfe deine Eingaben!</translation>
     </message>
     <message>
         <source>Jolla Order Change Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Jollabestellungsänderungsanfrage</translation>
     </message>
     <message>
         <source>Please enter the details of your order change request below.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte gib die Details deiner Änderungsanfrage unten ein.</translation>
     </message>
     <message>
         <source>After you&apos;re finished, scroll down to review the email text, and use the PullUp menu at the bottom to submit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn du fertig bist, scrolle ganz nach unten und verwende das Zieh-Menü um ihn abzuschicken.</translation>
     </message>
     <message>
         <source>Submitting will not send anything, but open your email app.</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Abschicken versendet noch nichts, sondern öffnet das EMailprogramm.</translation>
     </message>
     <message>
         <source>If you do not want this, disable this switch.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn du das nicht möchtest, deaktiviere diesen Schalter.</translation>
     </message>
     <message>
         <source>Order Number</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestellnummer (Order Number)</translation>
     </message>
     <message>
         <source>Order Email address</source>
-        <translation type="unfinished"></translation>
+        <translation>Emailadresse der Bestellung</translation>
     </message>
     <message>
         <source>Make sure to use the email address that received the order confirmation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte stelle sicher, daß das die Adresse ist, an die die Bestellbestätigung gessandt wurde.</translation>
     </message>
     <message>
         <source>Full Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Vor- und Nachname</translation>
     </message>
     <message>
         <source>Request Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Änderungsart</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Andere</translation>
     </message>
     <message>
         <source>Delivery Address Change</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Request Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Lieferadresse ändern</translation>
     </message>
     <message>
         <source>Describe your request briefly.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kurze Beschribung was du möchtest.</translation>
     </message>
     <message>
         <source>Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Anfrage</translation>
     </message>
     <message>
         <source>Describe your issue or wishes. Try to be clear and to the point.</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschreibe das Problem oder den Wunsch. Bitte fasse dich kurz, knapp und klar.</translation>
     </message>
     <message>
         <source>Email Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Emailvoschau</translation>
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"></translation>
+        <translation>Abschicken</translation>
     </message>
     <message>
         <source>Save Basic Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Stammdaten speichern</translation>
     </message>
     <message>
         <source>Copy Subject to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Betreff kopieren</translation>
     </message>
     <message>
         <source>Copy Body to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Inhalt kopieren</translation>
     </message>
     <message>
         <source>Final sending must be done from the email app. Please leave the subject line, and the bottom (after the signature) intact.</source>
-        <translation type="unfinished"></translation>
+        <translation>Das abschließende Verschicken muss aus der Email-App erfolgen. Bitte belasse die Betreffzeile und das Ende des Textes (nach der Unterschrift) unverändert.</translation>
     </message>
     <message>
         <source>Order/Item Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Änderung des Artikels</translation>
     </message>
     <message>
         <source>Payment/Refund/VAT</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezahlung, Rückerstattung, MwSt</translation>
     </message>
     <message>
         <source>Your last email was less than %1 hours ago.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dein letztes Mail wurde vor weniger als %1 Stunden verschickt.</translation>
     </message>
     <message>
         <source>Are you sure you need to send another one?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bist du sicher, daß es ein weiteres benötigt?</translation>
     </message>
     <message>
         <source>Delete personal information</source>
-        <translation type="unfinished"></translation>
+        <translation>Stammdaten löschen</translation>
     </message>
     <message>
         <source>Welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Willkommen</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"></translation>
+        <translation>Ja ja, gelesen!</translation>
     </message>
     <message>
         <source>Welcome to the inofficial Sailfish OS order change request reporting tool.</source>
-        <translation type="unfinished"></translation>
+        <translation>Willkommen beim inoffiziellen Jollabestellungsänderungsanfragewerkzeug.</translation>
     </message>
     <message>
         <source>Please enter the details of your order change on the main page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte gib die Details deiner Änderungsanfrage auf der Hauptseite ein.</translation>
     </message>
     <message>
         <source>Notice: Even though %1 offers localized versions, please keep your communication in English if at all possible.</source>
-        <translation type="unfinished"></translation>
+        <translation>Auch wenn %1 in übersetzung vorliegt, verwende bitte trotzdem Englisch für deine Kommunikation.</translation>
     </message>
     <message>
         <source>For your convenience, order number, name, and email address are saved and will be loaded on the next app launch.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pratischerweise speichert diese App deine Bestellnummer, Name und Email-Adresse, und lädt sie beim nächsten Start.</translation>
+    </message>
+    <message>
+        <source>Request Title (optional)</source>
+        <translation>Titel der Anfrage (optional)</translation>
     </message>
 </context>
 <context>
     <name>harbour-ordercorrect</name>
     <message>
         <source>It looks like you&apos;re sending a lot of emails.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schaut so aus, als würdest du recht oft Emails verschicken.</translation>
     </message>
     <message>
         <source>Maybe give it a break...</source>
-        <translation type="unfinished"></translation>
+        <translation>Bist du sicher, daß das sein muss?</translation>
     </message>
 </context>
 </TS>
