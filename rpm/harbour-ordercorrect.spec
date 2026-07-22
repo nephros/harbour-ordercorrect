@@ -12,7 +12,7 @@ Name:       harbour-ordercorrect
 %undefine _chum
 %endif
 
-Summary:    Jolla Order Correction Helper
+Summary:    Send Jolla Order Communication
 Version:    0.1.3
 Release:    0
 Group:      Applications
@@ -33,6 +33,11 @@ BuildRequires: sdk-harbour-rpmvalidator
 
 %description
 %{summary}.
+
+A small helper application which allows sending email to Jolla Shop support in
+a consistent way. This should help them to process the email queue efficiently.
+
+Note that this is INOFFICIAL and was not created by Jolla!
 
 %if 0%{?_chum}
 Title: OrderMail
