@@ -20,7 +20,7 @@ Ahoy Sailors!
 Thank you,
   Kevin Freibeuter
 
-  ~~~~ please do not edit amything below this line ~~~~
+  ~~~~ please do not edit anything below this line ~~~~
   ------------------
   Name: .... Kevin Freibeuter
   Email: ... evilkid1763@bucaneers.example.org
