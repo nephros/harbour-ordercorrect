@@ -47,11 +47,11 @@ Categories:
   - Utility
 Custom:
   Repo: %{url}
-PackageIcon: https://raw.githubusercontent.com/nephros/%{name}/refs/heads/chum/%{name}.png
+PackageIcon: https://raw.githubusercontent.com/nephros/%{name}/refs/heads/master/%{name}.png
 Screenshots:
- - https://raw.githubusercontent.com/nephros/%{name}/refs/heads/chum/harbour-data/banner.png
- - https://raw.githubusercontent.com/nephros/%{name}/refs/heads/chum/harbour-data/screenshot001.png
- - https://raw.githubusercontent.com/nephros/%{name}/refs/heads/chum/harbour-data/screenshot002.png
+ - https://raw.githubusercontent.com/nephros/%{name}/refs/heads/master/harbour-data/banner.png
+ - https://raw.githubusercontent.com/nephros/%{name}/refs/heads/master/harbour-data/screenshot001.png
+ - https://raw.githubusercontent.com/nephros/%{name}/refs/heads/master/harbour-data/screenshot002.png
 %endif
 
 %prep
