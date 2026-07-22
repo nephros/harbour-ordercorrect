@@ -1,12 +1,16 @@
 Name:       harbour-ordercorrect
 
+%bcond_with harbour
+
 %define orgname org.nephros.sailfish
 %define appname OrderMail
 %define pkgname %{name}
 
+%if %{with harbour}
 %undefine vendor
 %undefine _vendor
 %undefine _chum
+%endif
 
 Summary:    Jolla Order Correction Helper
 Version:    0.1.3
@@ -30,6 +34,16 @@ BuildRequires: sdk-harbour-rpmvalidator
 %description
 %{summary}.
 
+%if 0%{?_chum}
+Title: OrderMail
+Type: desktop-application
+DeveloperName: Peter G.
+Categories:
+  - Utility
+Custom:
+  Repo: %{url}
+PackageIcon: %{url}/master/icons/svgs/%{name}.svg
+%endif
 
 %prep
 %setup -q -n %{name}-%{version}
