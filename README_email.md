@@ -4,12 +4,11 @@
 
 ```
 Subject: JollaPhoneOrderChanges|#90210|address-change| My Delivery address
-
 ```
 
 The Subject contains the fixed "email tag" `JollaPhoneOrderChanges`, followed
 by order number and a category, separated by pipes, and finally the (optional)
-user-supplied sunject text.
+user-supplied subject text.
 
 ```
 Ahoy Sailors!
