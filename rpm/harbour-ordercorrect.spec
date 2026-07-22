@@ -48,6 +48,10 @@ Categories:
 Custom:
   Repo: %{url}
 PackageIcon: %{url}/raw/branch/chum/%{name}.png
+Screenshots:
+ - %{url}/raw/branch/chum/harbour-data/banner.png
+ - %{url}/raw/branch/chum/harbour-data/screenshot001.png
+ - %{url}/raw/branch/chum/harbour-data/screenshot002.png
 %endif
 
 %prep
