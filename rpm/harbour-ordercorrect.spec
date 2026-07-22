@@ -13,7 +13,7 @@ Name:       harbour-ordercorrect
 %endif
 
 Summary:    Send Jolla Order Communication
-Version:    0.1.3
+Version:    0.1.4
 Release:    0
 Group:      Applications
 License:    Apache-2.0
