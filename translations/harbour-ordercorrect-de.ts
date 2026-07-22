@@ -124,7 +124,7 @@
         <translation>Ja ja, gelesen!</translation>
     </message>
     <message>
-        <source>Welcome to the inofficial Sailfish OS order change request reporting tool.</source>
+        <source>Welcome to the unofficial Sailfish OS order change request reporting tool.</source>
         <translation>Willkommen beim inoffiziellen Jollabestellungsänderungsanfragewerkzeug.</translation>
     </message>
     <message>

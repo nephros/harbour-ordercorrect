@@ -37,7 +37,7 @@ BuildRequires: sdk-harbour-rpmvalidator
 A small helper application which allows sending email to Jolla Shop support in
 a consistent way. This should help them to process the email queue efficiently.
 
-Note that this is INOFFICIAL and was not created by Jolla!
+Note that this is UNOFFICIAL and was not created by Jolla!
 
 %if 0%{?_chum}
 Title: OrderMail

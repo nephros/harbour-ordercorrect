@@ -233,7 +233,7 @@ Page { id: page
                         color: Theme.secondaryHighlightColor
                         font.pixelSize: Theme.fontSizeSmall
                         wrapMode: Text.WordWrap
-                        text: qsTr('Welcome to the inofficial Sailfish OS order change request reporting tool.')
+                        text: qsTr('Welcome to the unofficial Sailfish OS order change request reporting tool.')
                     }
                     Label {
                         width:  parent.width - Theme.horizontalPageMargin
