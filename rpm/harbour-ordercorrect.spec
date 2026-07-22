@@ -47,7 +47,7 @@ Categories:
   - Utility
 Custom:
   Repo: %{url}
-PackageIcon: %{url}/master/icons/svgs/%{name}.svg
+PackageIcon: %{url}/raw/branch/chum/%{name}.png
 %endif
 
 %prep
