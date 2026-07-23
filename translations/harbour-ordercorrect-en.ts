@@ -124,10 +124,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Welcome to the unofficial Sailfish OS order change request reporting tool.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Please enter the details of your order change on the main page.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -141,6 +137,10 @@
     </message>
     <message>
         <source>Request Title (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Welcome to the unofficial Sailfish OS order change request tool.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

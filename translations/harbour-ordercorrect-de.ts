@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Welcome to the unofficial Sailfish OS order change request reporting tool.</source>
-        <translation>Willkommen beim inoffiziellen Jollabestellungsänderungsanfragewerkzeug.</translation>
+        <translation type="vanished">Willkommen beim inoffiziellen Jollabestellungsänderungsanfragewerkzeug.</translation>
     </message>
     <message>
         <source>Please enter the details of your order change on the main page.</source>
@@ -142,6 +142,10 @@
     <message>
         <source>Request Title (optional)</source>
         <translation>Titel der Anfrage (optional)</translation>
+    </message>
+    <message>
+        <source>Welcome to the unofficial Sailfish OS order change request tool.</source>
+        <translation>Willkommen zum inoffiziellen Jollabestellungsänderungsanfragewerkzeug.</translation>
     </message>
 </context>
 <context>
